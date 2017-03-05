@@ -28,4 +28,4 @@ app.delete('*', cors());
 
 routes(app, express);
 
-app.listen(port, () => console.log(`Scribe.io running on port ${port}!`));
+app.listen(port, () => console.log(`Scribe running on port ${port}!`));

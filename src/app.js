@@ -1,6 +1,7 @@
 import Vue from 'vue';
-import VueRouter from 'vue-router'
-import VueResource from 'vue-resource'
+import VueRouter from 'vue-router';
+import VueResource from 'vue-resource';
+import Root from './Root.vue';
 
 Vue.use(VueResource);
 Vue.use(VueRouter);
