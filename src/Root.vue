@@ -1,11 +1,16 @@
 <template>
-  <!-- <div class="container"> -->
+  <div>
     <div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 header">
       <div class="header">
         <p>Scribe</p>
       </div>
+      <div class="container">
+        Character: <router-link :to="{ path: 'character' }">Create!</router-link>
+        Setting: <router-link :to="{ path: 'setting' }">Create!</router-link>
+        Scene: <router-link :to="{ path: 'scene' }">Create!</router-link>
+      </div>
     </div>
-  <!-- </div> -->
+  </div>
 </template>
 
 <script>
