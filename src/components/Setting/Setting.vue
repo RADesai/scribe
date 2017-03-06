@@ -1,5 +1,5 @@
 <template>
-  <div id='character'>
+  <div id='setting'>
     <div class="container">
       <router-link :to="{ path: 'home' }">Home</router-link>
       <br>

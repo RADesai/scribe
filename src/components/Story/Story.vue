@@ -1,16 +1,16 @@
 <template>
-  <div id='character'>
+  <div id='story'>
     <div class="container">
       <router-link :to="{ path: 'home' }">Home</router-link>
       <br>
-      Scene.vue!
+      Story.vue!
     </div>
   </div>
 </template>
 
 <script>
   export default {
-    name: 'scene',
+    name: 'story',
     data() {
       return {}
     },

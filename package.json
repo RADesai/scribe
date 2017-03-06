@@ -17,6 +17,7 @@
     "body-parser": "^1.16.0",
     "cors": "^2.8.1",
     "express": "^4.14.0",
+    "image-webpack-loader": "^3.2.0",
     "vue": "^2.1.10",
     "vue-hot-reload-api": "^2.0.8",
     "vue-resource": "^1.1.1",

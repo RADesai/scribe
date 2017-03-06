@@ -6,6 +6,10 @@ module.exports = {
     'webpack-hot-middleware/client',
     './src/app.js'
   ],
+  build: {
+    assetsPublicPath: '/src/assets',
+    // assetsSubDirectory: 'src/assets'
+  },
   // Where should the compiled file go?
   output: {
     // To the `dist` folder
@@ -31,6 +35,13 @@ module.exports = {
         loader: 'babel',
         // don't transform node_modules folder (which don't need to be compiled)
         exclude: /node_modules/
+      },
+      {
+        test: /\.(jpe?g|png|gif|svg)$/i,
+        loaders: [
+          'file?hash=sha512&digest=hex&name=[hash].[ext]',
+          'image-webpack?bypassOnDebug&optimizationLevel=7&interlaced=false'
+        ]
       },
       {
         test: /\.vue$/,
