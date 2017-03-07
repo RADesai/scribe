@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <router-link :to="{ path: 'home' }">Home</router-link>
+    <router-link :to="{ path: 'home' }"><div class="title">Scribe</div></router-link>
     <div class="jumbotron">
       Create Your Next Character Below!
     </div>
