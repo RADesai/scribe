@@ -74,7 +74,7 @@
 
     </div>
     <div class="row">
-      <div>Icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a>, <a href="http://www.flaticon.com/authors/simpleicon" title="SimpleIcon">SimpleIcon</a>, && <a href="http://www.flaticon.com/authors/zlatko-najdenovski" title="Zlatko Najdenovski">Zlatko Najdenovski</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> are licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
+      <div>Icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a>, <a href="http://www.flaticon.com/authors/simpleicon" title="SimpleIcon">SimpleIcon</a>, && <a href="http://www.flaticon.com/authors/zlatko-najdenovski" title="Zlatko Najdenovski">Zlatko Najdenovski</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> are licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0</a></div>
     </div>
   </div>
 </template>
@@ -97,6 +97,7 @@ body {
 }
 .purple {
   background-color: #8d459b;
+  color: #DAF7A6;
 }
 .offWhite {
   background-color: #f1f4ff;
@@ -104,12 +105,12 @@ body {
 .darkTeal {
   background-color: #3c474d;
   border-color: #3c474d;
-  color: #3c474d;
+  color: #ff5733;
 }
 .teal {
   background-color: #45b39d;
   border-color: #45b39d;
-  color: #45b39d;
+  color: #DAF7A6;
 }
 .lightGreen {
   background-color: #DAF7A6;
@@ -117,7 +118,7 @@ body {
 .orange {
   background-color: #ff5733;
   border-color: #ff5733;
-  color: #ff5733;
+  color: #3c474d;
 }
 /* ^^^ APP STYLES ^^^ */
 
