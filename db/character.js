@@ -19,7 +19,6 @@ module.exports.Character = Character;
 
 // Create Character
 module.exports.createCharacter = (name, cb) => {
-  console.log('Creating character in character.js');
   Character.create(name, cb);
 }
 
@@ -28,9 +27,9 @@ module.exports.getCharacters = (cb, limit) => {
 	Character.find(cb).limit(limit);
 }
 // Get Character
-// module.exports.getCharacter = (cb, limit) => {
-// 	Character.find(cb).limit(limit);
-// }
+module.exports.getCharacter = (query, cb) => {
+  Character.findOne(query, cb);
+}
 
 // Update Character
 module.exports.updateCharacter = (id, name, options, cb) => {

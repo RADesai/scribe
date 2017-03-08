@@ -29,21 +29,21 @@ module.exports = {
         res.status(200).send(response);
       }
     });
+  },
+  getCharacter: function(req, res) {
+    // Searching with the character_id
+    let query = {
+      _id: req.params.id
+    };
+    Character.getCharacter(query, (error, response) => {
+      if (error) {
+        console.log('Failed to find character');
+        res.send(error);
+      } else {
+        console.log('Successfully found character:');
+        console.log(response);
+        res.status(200).send(response);
+      }
+    });
   }
-  // findCharacter: function(req, res) {
-  //   console.log('REQ.body in Controller:', req.body);
-  //   let char = {
-  //     name: req.body.name
-  //   };
-  //   Character.findCharacter(char, (err, res) => {
-  //     if (err) {
-  //       console.log('Failed to create character');
-  //       res.send(err);
-  //     } else {
-  //       console.log('Successfully created character:');
-  //       console.log(res);
-  //       // res.status(201).send(res);
-  //     }
-  //   });
-  // }
 };
