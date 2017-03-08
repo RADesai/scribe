@@ -1,22 +1,10 @@
-var mongoose = require('mongoose');
+const mongoose = require('mongoose');
+let db = 'mongodb://localhost/scribe';
 
-mongoose.connect('mongodb://localhost/scribe');
-
-db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', function() {
-  // we're connected!
-  console.log('connection open!');
+mongoose.connect(db, (err, res) => {
+  if (err) {
+    console.log('Failed to connect to ' + db);
+  } else {
+    console.log('Connected to ' + db);
+  }
 });
-
-// // Mongoose Docs --->
-//
-var charSchema = mongoose.Schema({
-    name: String
-});
-
-var Character = mongoose.model('Character', charSchema);
-
-var bmoney = new Character({ name: 'B-Money' });
-console.log(bmoney.name); // 'B-Money'
-//
-// // <--- Mongoose Docs

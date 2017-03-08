@@ -8,7 +8,7 @@ module.exports = {
   ],
   build: {
     assetsPublicPath: '/src/assets',
-    // assetsSubDirectory: 'src/assets'
+    assetsSubDirectory: 'src/assets'
   },
   // Where should the compiled file go?
   output: {
@@ -42,6 +42,12 @@ module.exports = {
           'file?hash=sha512&digest=hex&name=[hash].[ext]',
           'image-webpack?bypassOnDebug&optimizationLevel=7&interlaced=false'
         ]
+        // optipng: {
+        //   optimizationLevel: 7
+        // },
+        // gifsicle: {
+        //   interlaced: false
+        // }
       },
       {
         test: /\.vue$/,

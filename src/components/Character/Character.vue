@@ -12,7 +12,16 @@
       Qualities - Top Row
       <div class="jumbotron darkTeal">
         <br>
+        * Name
+        <input v-model="name">
+        <br>
+        <div class="square" v-on:click="createChar">
+          submit character here
+        </div>
+        <br>
         * Characteristics/Description
+        <br>
+        * Real Life Counterparts/Comparisons?
         <br>
         * Pos -- Neg?
         <br>
@@ -24,6 +33,9 @@
       Center Row
       <div class="jumbotron purple">
         Jumbotron
+        <div class="square" v-on:click="getChars">
+          get characters
+        </div>
       </div>
     </div>
     <br>
@@ -61,14 +73,38 @@
   export default {
     name: 'character',
     data() {
-      return {}
+      return {
+        name: ''
+      }
     },
     props: [],
     mounted() {},
-    methods: {}
+    methods: {
+      createChar: function() {
+        let data = {
+          'name': this.name
+        }
+        this.$http.post('/api/characters', data).then(response => {
+          console.log(`${this.name} was posted to db!`);
+          console.log(response.body);
+        }, response => {
+          console.log('ERROR;', response);
+        });
+        this.name = '';
+      },
+      getChars: function() {
+        this.$http.get('/api/characters').then(response => {
+          console.log("characters:", response.body);
+        }, response => {
+          console.log('ERROR;', response);
+        })
+      }
+    }
   }
 </script>
 
 <style scoped>
-
+.square {
+  cursor: pointer;
+}
 </style>

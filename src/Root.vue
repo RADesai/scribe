@@ -169,7 +169,7 @@ img {
   opacity: 0.95;
   box-shadow: 0px 3px 6px #ff5733;
   color: #ff5733;
-  transform: translateY(-5px);
+  transform: translateY(-7px);
 }
 .square:hover hr {
   background-color: #ff5733;
