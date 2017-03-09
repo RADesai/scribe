@@ -2,17 +2,16 @@
   <div class="col-sm-10 col-sm-offset-1">
     <div class="title">Scribe</div>
     <hr class="teal">
-    <div class="header">Create</div>
-    <hr class="orange">
+    <div class="header">Project Title: 'New Project'</div>
     <div class="row">
       <div class="col-md-2">
         2-col OFFSET
         <br>
-        <--------------------->
+        <----------------------
         <br>
         ROW 1
         <br>
-        <--------------------->
+        <----------------------
       </div>
       <div class="col-md-4">
         <router-link :to="{ path: 'character' }">
@@ -34,16 +33,25 @@
           </div>
         </router-link>
       </div>
+      <div class="col-md-2">
+        2-col OFFSET
+        <br>
+        ---------------------->
+        <br>
+        ROW 1
+        <br>
+        ---------------------->
+      </div>
     </div>
     <div class="row">
       <div class="col-md-2">
         2-col OFFSET
         <br>
-        <--------------------->
+        <----------------------
         <br>
         ROW 2
         <br>
-        <--------------------->
+        <----------------------
       </div>
       <div class="col-md-4">
         <router-link :to="{ path: 'scene' }">
@@ -64,6 +72,15 @@
             Story
           </div>
         </router-link>
+      </div>
+      <div class="col-md-2">
+        2-col OFFSET
+        <br>
+        ---------------------->
+        <br>
+        ROW 1
+        <br>
+        ---------------------->
       </div>
       <br>
     </div>
@@ -92,8 +109,10 @@
 <style>
 /*APP STYLES*/
 body {
-  background-color: #f1f4ff;
+  background-color: #3c474d;
+  /*background-color: #f1f4ff;*/
   font-family: 'Work Sans', sans-serif;
+  color: #f1f4ff;
 }
 .purple {
   background-color: #8d459b;
@@ -101,6 +120,7 @@ body {
 }
 .offWhite {
   background-color: #f1f4ff;
+  color: #3c47cd;
 }
 .darkTeal {
   background-color: #3c474d;
@@ -141,7 +161,7 @@ body {
 .square {
   position: relative;
   background-color: #3c474d;
-  color: #f1f4ff;
+  color: #3c474d;
   font-family: 'Supermercado One', sans-serif;
   font-size: 1.5em;
   margin: 40px 20px 0px auto;
@@ -149,11 +169,10 @@ body {
   display: inline-block;
   padding: 30px;
   border-radius: 4px 4px 6px 6px;
-  border-top: 5px solid #ff5733;
+  border-top: 5px solid #45b39d;
   transition: .3s ease-out;
 }
 .square hr {
-  margin: 0.5em 3em;
   transition: .4s ease-out;
 }
 img {
@@ -167,15 +186,15 @@ img {
 }
 .square:hover {
   opacity: 0.95;
-  box-shadow: 0px 3px 6px #ff5733;
-  color: #ff5733;
-  transform: translateY(-7px);
+  box-shadow: 0px 2px 4px #45b39d;
+  color: #45b39d;
+  transform: translateY(-5px);
 }
 .square:hover hr {
-  background-color: #ff5733;
-  border-color: #ff5733;
-  color: #ff5733;
-  transform: scaleX(3);
+  background-color: #8d459b;
+  border-color: #8d459b;
+  color: #8d459b;
+  transform: scaleX(0) scaleY(0);
 }
 .square:hover img.top {
   opacity:0;

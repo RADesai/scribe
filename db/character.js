@@ -26,6 +26,7 @@ module.exports.createCharacter = (name, cb) => {
 module.exports.getCharacters = (cb, limit) => {
 	Character.find(cb).limit(limit);
 }
+
 // Get Character
 module.exports.getCharacter = (query, cb) => {
   Character.findOne(query, cb);
