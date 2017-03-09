@@ -13,7 +13,7 @@ module.exports = function(app, express){
 
   // Specific Character :id
   router.route('/characters/:id')
-  //   .put(controller.updateCharacter)
+    .put(controller.updateCharacter)
     .get(controller.getCharacter);
   //   .delete(controller.deleteCharacter);
 

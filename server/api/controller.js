@@ -45,5 +45,26 @@ module.exports = {
         res.status(200).send(response);
       }
     });
+  },
+  updateCharacter: function(req, res) {
+    // let update = {
+    //   _id: req.params.id,
+    //   note: req.body.note,
+    //   tag: req.body.tag
+    // };
+    let query = {
+      _id: req.params.id,
+      note: 'test note'
+    };
+    Character.updateCharacter(query._id, query.note, (error, response) => {
+      if (error) {
+        console.log(error);
+        res.send(error);
+      } else {
+        console.log('Successfully Updated!');
+        console.log(response);
+        res.status(204);
+      }
+    });
   }
 };

@@ -3,9 +3,15 @@ const mongoose = require('mongoose');
 // Character Schema
 
 const charSchema = mongoose.Schema({
-  name: {
-    type: String,
-    required: true
+  name: { type: String, required: true },
+  background: [{
+    note: { type: String, required: true },
+    tags: [
+      { name: { type: String } }
+    ]
+  }],
+  traits: {
+    type: Array
   },
   create_date: {
     type: Date,
@@ -33,12 +39,21 @@ module.exports.getCharacter = (query, cb) => {
 }
 
 // Update Character
-module.exports.updateCharacter = (id, name, options, cb) => {
-	var query = {_id: id};
-	var update = {
-		name: name
-	}
-	Character.findOneAndUpdate(query, update, options, cb);
+// module.exports.updateCharacter = (id, name, options, cb) => {
+// 	var query = {_id: id};
+// 	var update = {
+// 		name: name
+// 	}
+// 	Character.findOneAndUpdate(query, update, options, cb);
+// }
+
+module.exports.updateCharacter = (id, note, cb) => {
+  Character.findByIdAndUpdate(
+    id,
+    {$push: {"background": {note: note}}},
+    {safe: true, upsert: true, new : true},
+    cb
+  );
 }
 
 // Delete Character
