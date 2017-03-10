@@ -170,7 +170,7 @@ body {
   padding: 30px;
   border-radius: 4px 4px 6px 6px;
   border-top: 5px solid #45b39d;
-  transition: .3s ease-out;
+  transition: .4s ease-out;
 }
 .square hr {
   transition: .4s ease-out;

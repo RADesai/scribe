@@ -22,19 +22,34 @@
     <br>
     <div class="row">
       <div class="col-md-3">
-        <div class="background">
-          Background
+        <span class="header">Traits</span>
+        <div class="bg" v-for="(item, index) in bg">
+          <div class="well well-sm">{{ item.note }}</div>
+          <span class="tooltiptext">
+            <span class="label label-default" v-for="(tag, index) in item.tags">
+              {{ tag.name }}
+            </span>
+          </span>
         </div>
       </div>
+      <!-- CENTER -->
       <div class="col-md-6">
-        <div class="jumbotron purple">
-          Characteristics / Traits
-          <br>
+        <div class="cent" v-for="(item, index) in bg">
+          <div class="col-md-12">
+            <div class="col-md-6">
+              <div class="well well-sm">{{ item.note }}</div>
+            </div>
+            <div class="col-md-6">
+              <span class="label label-default" v-for="(tag, index) in item.tags">
+                {{ tag.name }}
+              </span>
+            </div>
+          </div>
         </div>
       </div>
       <div class="col-md-3">
-        <div class="background">
-          Goals
+        <div class="bg">
+          <span class="header">Goals</span>
         </div>
       </div>
     </div>
@@ -74,7 +89,17 @@
     name: 'character',
     data() {
       return {
-        name: 'Dr. Interesto Characterstein'
+        char: {},
+        name: 'Dr. Interesto Characterstein',
+        bg: [
+          { note: 'From NYC', tags: [{"name": 'ben'}] },
+          { note: 'From CHI', tags: [{"name": 'bin'}] },
+          { note: 'From NJ', tags: [{"name": 'bit'}] },
+          { note: 'Has 27 siblings that all live in another country', tags: [{"name": 'mamu'}] },
+          { note: 'MIT Professor', tags: [{"name": 'billy'},{"name": 'bob'},{"name": 'jax'},{"name": 'max'},{"name": 'bob'},{"name": 'jax'},{"name": 'max'},{"name": 'bob'},{"name": 'jax'},{"name": 'max'},{"name": 'jax'}] },
+          { note: 'Cuts hair', tags: [{"name": 'jax'},{"name": 'max'}] }
+        ],
+        traits: []
       }
     },
     props: [],
@@ -82,16 +107,20 @@
     methods: {
       createChar: function() {
         let data = {
-          'name': this.name
+          'name': this.name,
+          'bg': this.bg,
+          'traits': this.traits
         }
         this.$http.post('/api/characters', data).then(response => {
           console.log(`${this.name} was posted to db!`);
-          console.log(response.body);
+          this.char = response.body;
         }, response => {
           console.log('ERROR:', response);
         });
-        this.name = 'Give me a name!';
       },
+      // updateChar: function() {
+      //   this.$http.put('api/characters/')
+      // }
       getChars: function() {
         this.$http.get('/api/characters').then(response => {
           console.log("characters:", response.body);
@@ -133,44 +162,82 @@ input:focus {
   color: #FFD877;
 }
 
+/*Scroll through background notes*/
+/*overflow: scroll;
+overflow-y: scroll;*/
+.bg {
+  position: relative;
+  align-items: center;
+}
+
 /* Tooltip text */
-.square .tooltiptext {
+.bg .tooltiptext {
     visibility: hidden;
-    background-color: #f1f4ff;
+    background-color: transparent;
     color: #3c474d;
     text-align: center;
-    padding: 3px 3px;
+    display: flex;
+    flex-wrap: wrap;
     border-radius: 4px 4px 6px 6px;
-    /*width: 120px;*/
-
-    /* Position the tooltip text */
     position: absolute;
     z-index: 1;
-    bottom: 50%;
-    left: -25%;
-    /*margin-left: -60px;*/
-    margin: 0 auto;
-
-    /* Fade in tooltip */
+    bottom: 100%;
+    left: 0;
     opacity: 0;
-    transition: opacity 1s;
+    transition: opacity 0.5s;
+}
+.bg .tooltiptext .label {
+  background-color: transparent;
+  color: #45b39d;
 }
 
-/* Tooltip arrow */
-.square .tooltiptext::after {
-    content: "";
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    margin-left: -5px;
-    border-width: 5px;
-    border-style: solid;
-    border-color: #555 transparent transparent transparent;
-}
-
-/* Show the tooltip text when you mouse over the tooltip container */
-.square:hover .tooltiptext {
+.bg:hover .tooltiptext {
     visibility: visible;
-    opacity: 1;
+    opacity: 0.8;
+}
+
+.well {
+  opacity: 0.8;
+  background-color: transparent;
+  border-radius: 6px 6px 12px 12px;
+  border-width: 2px;
+  border-color: transparent;
+  color: #FFD877;
+  transition: .4s ease-out;
+}
+.well:hover {
+  opacity: 1;
+  cursor: pointer;
+  border-color: #45b39d;
+  transform: translateY(-5%);
+}
+
+.header {
+  font-family: 'Supermercado One', sans-serif;
+}
+
+.cent .label {
+    visibility: hidden;
+    background-color: transparent;
+    color: #3c474d;
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    border-radius: 4px 4px 6px 6px;
+    position: absolute;
+    z-index: 1;
+    bottom: 100%;
+    left: 0;
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+.cent .label {
+  background-color: transparent;
+  color: #45b39d;
+}
+
+.cent:hover .label {
+    visibility: visible;
+    opacity: 0.8;
 }
 </style>

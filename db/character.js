@@ -24,8 +24,8 @@ const Character = mongoose.model('Character', charSchema);
 module.exports.Character = Character;
 
 // Create Character
-module.exports.createCharacter = (name, cb) => {
-  Character.create(name, cb);
+module.exports.createCharacter = (char, cb) => {
+  Character.create(char, cb);
 }
 
 // Get All Characters

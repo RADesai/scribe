@@ -6,15 +6,16 @@ module.exports = {
   createCharacter: function(req, res) {
     console.log('REQ.body in Controller:', req.body);
     let char = {
-      name: req.body.name
+      name: req.body.name,
+      background: req.body.bg,
+      traits: req.body.traits
     };
     Character.createCharacter(char, (error, response) => {
       if (error) {
-        console.log('Failed to create character');
+        console.log('error in creation:', error);
         res.send(error);
       } else {
-        console.log('Successfully created character:');
-        console.log(response);
+        console.log('successful creation');
         res.status(201).send(response);
       }
     });
@@ -22,10 +23,8 @@ module.exports = {
   getCharacters: function(req, res) {
     Character.getCharacters((error, response) => {
       if (error) {
-        console.log('Failed to find characters');
         res.send(error);
       } else {
-        console.log('Successfully found characters:');
         res.status(200).send(response);
       }
     });
@@ -37,11 +36,8 @@ module.exports = {
     };
     Character.getCharacter(query, (error, response) => {
       if (error) {
-        console.log('Failed to find character');
         res.send(error);
       } else {
-        console.log('Successfully found character:');
-        console.log(response);
         res.status(200).send(response);
       }
     });
